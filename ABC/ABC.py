@@ -101,11 +101,11 @@ class ArtificialBeeColony:
         for gen in range(self.generation):
             print("Generation:", gen+1)
 
-            #Employed Bee Phase
+            #Fase abeja obrera
             for i in range(self.n):
                 self.updateSolution(i)
 
-            #Onlooker Bee Phase
+            #Fase abeja observadora
             for i in range(self.n):
                 self.pArray[i] = self.fitnessArray[i]/self.fitnessArray.sum()
             for i in range(self.n):
@@ -115,7 +115,7 @@ class ArtificialBeeColony:
             if(self.ans == 0): self.printLocalBestSolution_MIN()
             elif(self.ans == 1): self.printLocalBestSolution_MAX()
             
-            #Scout Bee Phase
+            #Fase abeja exploradora
             limit = 1
             for i in range(self.n):
                 if(self.trialArray[i] > limit):
@@ -130,7 +130,7 @@ class ArtificialBeeColony:
         print("Best Food Source:", self.bestFoodSourceArray)
         print("Best F(x) =", self.bestFunc)
 
-
+#función a minimizar
 def test(X,D):
     x=X[0]
     y=X[1]
